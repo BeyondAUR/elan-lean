@@ -7,7 +7,7 @@
 # Contributor: Jon Gjengset <jon@tsp.io>
 _pkgname=elan
 pkgname=${_pkgname}-lean
-pkgver=3.0.0
+pkgver=3.1.0
 pkgrel=1
 pkgdesc="A Lean version manager"
 arch=('x86_64')
