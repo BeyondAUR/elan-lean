@@ -25,7 +25,7 @@ options=(!lto)
 
 build() {
     cd "$srcdir/$_pkgname-${pkgver}"
-    RUSTUP_TOOLCHAIN=stable cargo build --release --features no-self-update --bin elan-init
+    RUSTUP_TOOLCHAIN=1.79.0 cargo build --release --features no-self-update --bin elan-init
 }
 
 package() {
