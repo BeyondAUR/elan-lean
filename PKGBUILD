@@ -7,8 +7,8 @@
 # Contributor: Jon Gjengset <jon@tsp.io>
 _pkgname=elan
 pkgname=${_pkgname}-lean
-pkgver=4.0.0
-pkgrel=2
+pkgver=4.1.1
+pkgrel=1
 pkgdesc="A Lean version manager"
 arch=('x86_64')
 url="https://github.com/leanprover/elan"
@@ -19,13 +19,15 @@ provides=('lean-community' 'lean4')
 conflicts=('lean-bin' 'lean-git' 'lean4' 'lean-community')
 install='post.install'
 source=("elan-${pkgver}.tar.gz::https://github.com/leanprover/elan/archive/v${pkgver}.tar.gz")
-sha512sums=('5fd8001d19d9bcf885473c40c59e4559115a7624868aa9b7c2aa63884fd02d05b74adc26178a4ae206378a709db665ee47fc30e3c808e21b8d291b193f4dfbf3')
+sha512sums=('a1777beb547f523abf16bc527e97f197babd9bef6a0a307181adb18b3fd867bd02a465812840b558991316078242bd732000f1e60fa0789b485f7540bf93a785')
 _binlinks=('lean' 'leanchecker' 'leanpkg' 'lake')
 options=(!lto)
 
+export RUSTUP_TOOLCHAIN=1.87.0
+
 build() {
     cd "$srcdir/$_pkgname-${pkgver}"
-    RUSTUP_TOOLCHAIN=stable cargo build --release --features no-self-update --bin elan-init
+     cargo build --release --features no-self-update --bin elan-init
 }
 
 package() {
